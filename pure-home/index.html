@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pure Home · Cleaning Co.</title>
+<meta name="description" content="Pure Home Cleaning Co. offers standard, deep and move-out cleaning. Get an instant price and book in 60 seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap">
+<style>
+/* Layout: fresh and trustworthy. White and mint surfaces, deep teal ink, a lime "spark" accent for actions. */
+:root{
+  color-scheme:light;
+  --white:#ffffff;
+  --mist:#f1f8f6;
+  --mint:#d4efe6;
+  --teal:#0f4c45;
+  --teal-ink:#0b2e2a;
+  --muted:#4e6a66;
+  --lime:#c4f25a;
+  --lime-ink:#1d2b05;
+  --line:rgba(11,46,42,.12);
+  --font-display:"Outfit", "Segoe UI", system-ui, sans-serif;
+  --font-body:"Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  --wrap:1180px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--teal-ink);font-family:var(--font-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;margin:0;line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--teal);background:var(--mint);padding:7px 14px;border-radius:999px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 16px/1 var(--font-body);padding:17px 26px;border-radius:14px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s, background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-lime{background:var(--lime);color:var(--lime-ink)}
+.btn-lime:hover{background:#d2f877}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-soft{background:var(--mist);color:var(--teal)}
+
+.demo{background:var(--teal-ink);color:#cfe6e1;font-size:13px;text-align:center}
+.demo .wrap{padding-block:9px}
+.demo a{color:var(--lime);text-underline-offset:3px}
+
+/* Nav */
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-weight:800;font-size:24px;letter-spacing:-.02em}
+.logo-mark{width:38px;height:38px;border-radius:12px;background:var(--teal);color:var(--lime);display:grid;place-items:center;font-size:20px}
+.links{display:flex;gap:28px;align-items:center;font-weight:700;font-size:15px}
+.links a{text-decoration:none}
+.links a:hover{color:var(--teal)}
+.links .phone{color:var(--muted);font-weight:600}
+.links .btn{padding:13px 20px;font-size:15px}
+
+/* Hero */
+.hero{background:var(--mist)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-block:64px 80px}
+.hero-text{display:grid;gap:24px}
+.hero h1{font-size:clamp(46px, 6.4vw, 86px)}
+.hero h1 mark{background:var(--lime);color:inherit;padding:0 .14em;border-radius:.18em}
+.hero .lead{font-size:19px;color:var(--muted);max-width:42ch}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.trust{display:flex;gap:26px;flex-wrap:wrap;font-size:14px;font-weight:700;color:var(--teal)}
+.trust span::before{content:"✓ ";color:var(--teal)}
+.hero-photo{position:relative;min-width:0}
+.hero-photo img{width:100%;aspect-ratio:5/4.4;object-fit:cover;border-radius:28px}
+.float{position:absolute;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 20px 40px -18px rgba(11,46,42,.35);display:flex;align-items:center;gap:12px}
+.float b{font-family:var(--font-display);font-size:22px}
+.float span{font-size:13px;color:var(--muted);line-height:1.3}
+.float .ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--lime);font-size:20px}
+.float.a{left:-24px;bottom:28px}
+.float.b{right:-16px;top:24px}
+
+/* Stats */
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-block:44px}
+.stat{display:grid;gap:2px}
+.stat b{font-family:var(--font-display);font-size:40px;color:var(--teal);font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:15px}
+
+section{padding-block:96px}
+.head{display:grid;gap:14px;max-width:640px;margin-bottom:48px}
+.head h2{font-size:clamp(38px, 5vw, 60px)}
+.head p{color:var(--muted);font-size:18px}
+
+/* Services */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.svc{border:1px solid var(--line);border-radius:22px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;background:#fff;transition:transform .2s, box-shadow .2s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 24px 40px -24px rgba(11,46,42,.35)}
+.svc img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.svc-body{padding:22px;display:grid;gap:10px;align-content:start}
+.svc h3{font-size:22px}
+.svc p{color:var(--muted);font-size:15px}
+.svc .from{font-weight:700;color:var(--teal)}
+
+/* Quote calculator */
+.quote{background:var(--teal);color:#fff}
+.quote .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.quote .pill{background:rgba(196,242,90,.18);color:var(--lime)}
+.quote h2{font-size:clamp(38px, 5vw, 60px);margin-top:16px}
+.quote .lead{color:#cfe6e1;margin-top:16px;font-size:18px;max-width:40ch}
+.quote ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:10px;color:#e3f2ee}
+.quote li::before{content:"✓ ";color:var(--lime);font-weight:800}
+.calc{background:#fff;color:var(--teal-ink);border-radius:26px;padding:34px;display:grid;gap:22px}
+.calc h3{font-size:26px}
+.row{display:grid;gap:10px}
+.row > label,.row > span{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{display:grid;place-items:center;text-align:center;padding:12px 8px;border-radius:12px;background:var(--mist);font-weight:700;font-size:14px;cursor:pointer;border:2px solid transparent;line-height:1.2}
+.seg input:checked + label{border-color:var(--teal);background:var(--mint)}
+.seg input:focus-visible + label{outline:3px solid var(--teal);outline-offset:2px}
+.stepper{display:flex;align-items:center;justify-content:space-between;background:var(--mist);border-radius:12px;padding:8px}
+.stepper button{width:42px;height:42px;border-radius:10px;border:0;background:#fff;color:var(--teal);font-size:22px;font-weight:700;cursor:pointer}
+.stepper output{font-family:var(--font-display);font-weight:700;font-size:22px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.freq{width:100%;font:600 16px var(--font-body);color:var(--teal-ink);background:var(--mist);border:2px solid transparent;border-radius:12px;padding:13px}
+.total{display:flex;justify-content:space-between;align-items:end;gap:12px;padding-top:18px;border-top:1px dashed var(--line)}
+.total span{color:var(--muted);font-size:14px}
+.total b{font-family:var(--font-display);font-size:48px;line-height:1;color:var(--teal);font-variant-numeric:tabular-nums}
+.total small{display:block;color:#2f8f5b;font-weight:700;font-size:13px;text-align:right}
+.calc .btn{width:100%}
+.calc-note{font-size:13px;color:var(--muted);text-align:center}
+
+/* Checklist */
+.check .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.check-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px;min-width:0}
+.check-photos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:20px}
+.check-photos img:last-child{margin-top:48px}
+.rooms{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.room{background:var(--mist);border-radius:18px;padding:22px;display:grid;gap:10px}
+.room h3{font-size:20px}
+.room ul{list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:15px;color:var(--muted)}
+.room li::before{content:"✓ ";color:var(--teal);font-weight:800}
+
+/* Steps */
+.how{background:var(--mist)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:#fff;border-radius:22px;padding:30px;display:grid;gap:10px}
+.step .n{width:46px;height:46px;border-radius:14px;background:var(--lime);color:var(--lime-ink);display:grid;place-items:center;font-family:var(--font-display);font-weight:800;font-size:20px}
+.step h3{font-size:24px}
+.step p{color:var(--muted);font-size:15px}
+
+/* Reviews */
+.reviews .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review{border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;gap:14px;align-content:start}
+.review .stars{color:#e0a100;letter-spacing:.15em}
+.review p{font-size:17px}
+.review span{color:var(--muted);font-size:14px;font-weight:700}
+.sample{margin-top:18px;font-size:13px;color:var(--muted)}
+
+/* FAQ */
+.faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.faq details{border-bottom:1px solid var(--line);padding:22px 0}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-family:var(--font-display);font-weight:600;font-size:21px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";width:32px;height:32px;flex:none;border-radius:10px;background:var(--mist);display:grid;place-items:center;color:var(--teal);font-size:20px;line-height:32px;text-align:center}
+.faq details[open] summary::after{content:"–";background:var(--lime)}
+.faq details p{margin-top:12px;color:var(--muted)}
+
+/* CTA */
+.cta .box{background:var(--lime);border-radius:32px;padding:56px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;color:var(--lime-ink)}
+.cta h2{font-size:clamp(34px, 4.6vw, 54px);max-width:16ch}
+.cta p{margin-top:10px;font-size:17px}
+
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:30px}
+
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media (max-width: 1000px){
+  .svc-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 900px){
+  section{padding-block:72px}
+  .links a:not(.btn){display:none}
+  .hero .wrap,.quote .wrap,.check .wrap,.faq-wrap{grid-template-columns:1fr;gap:44px}
+  .hero-photo{max-width:560px}
+  .float.a{left:12px}.float.b{right:12px}
+  .stats .wrap{grid-template-columns:1fr 1fr}
+  .steps,.reviews .grid{grid-template-columns:1fr}
+  .check-photos{max-width:520px}
+  .cta .box{padding:36px 28px}
+}
+@media (max-width: 560px){
+  .svc-grid,.rooms,.two{grid-template-columns:1fr}
+  .calc{padding:24px 18px}
+  .seg label{font-size:13px;padding:11px 4px}
+  .float.b{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="demo"><div class="wrap">Sample website designed by Nickyar Web Design · <a href="../">Want one for your business?</a></div></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="logo-mark" aria-hidden="true">✦</span>Pure Home</a>
+    <nav class="links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#included">What’s included</a>
+      <a href="#faq">FAQ</a>
+      <span class="phone">(555) 010-2290</span>
+      <a class="btn btn-lime" href="#quote">Get my price</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding-block:0">
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="pill">★ 4.9 rating · Insured &amp; background-checked</span>
+        <h1>A spotless home, <mark>every visit.</mark></h1>
+        <p class="lead">Trusted, friendly cleaners who treat your home like their own. See your price in 30 seconds and book online.</p>
+        <div class="actions">
+          <a class="btn btn-lime" href="#quote">Get an instant price</a>
+          <a class="btn btn-soft" href="#services">Our services</a>
+        </div>
+        <div class="trust"><span>Eco-friendly products</span><span>100% happiness promise</span><span>No contracts</span></div>
+      </div>
+      <div class="hero-photo">
+        <img src="https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Team of three professional cleaners in a bright living room">
+        <div class="float a"><span class="ico" aria-hidden="true">✓</span><div><b>2,400+</b><br><span>homes cleaned</span></div></div>
+        <div class="float b"><span class="ico" aria-hidden="true">★</span><div><b>4.9</b><br><span>average rating</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><b>8 yrs</b><span>Cleaning local homes</span></div>
+      <div class="stat"><b>30 sec</b><span>To get your price</span></div>
+      <div class="stat"><b>100%</b><span>Insured and vetted team</span></div>
+      <div class="stat"><b>24 hr</b><span>Re-clean promise</span></div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="head">
+        <span class="pill" style="justify-self:start">Services</span>
+        <h2>Cleaning for every need</h2>
+        <p>From weekly upkeep to a full top-to-bottom refresh, we’ve got you covered.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc"><img src="https://images.pexels.com/photos/28991200/pexels-photo-28991200.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700" alt="Bright, tidy white living room" loading="lazy"><div class="svc-body"><h3>Standard clean</h3><p>Dusting, floors, kitchen and bathrooms, kept fresh.</p><span class="from">From $105</span></div></article>
+        <article class="svc"><img src="https://images.pexels.com/photos/4239146/pexels-photo-4239146.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700" alt="Gloved hand cleaning a round mirror with a sponge" loading="lazy"><div class="svc-body"><h3>Deep clean</h3><p>Baseboards, inside appliances and every hidden corner.</p><span class="from">From $168</span></div></article>
+        <article class="svc"><img src="https://images.pexels.com/photos/6195111/pexels-photo-6195111.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700" alt="Cleaner wiping a kitchen counter" loading="lazy"><div class="svc-body"><h3>Move in / out</h3><p>Empty-home clean that helps get your deposit back.</p><span class="from">From $189</span></div></article>
+        <article class="svc"><img src="https://images.pexels.com/photos/4440525/pexels-photo-4440525.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=700" alt="Colorful cleaning supplies on a white surface" loading="lazy"><div class="svc-body"><h3>Office clean</h3><p>After-hours cleaning for small offices and studios.</p><span class="from">Custom quote</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote" id="quote">
+    <div class="wrap">
+      <div>
+        <span class="pill">Instant price</span>
+        <h2>See your price in 30 seconds.</h2>
+        <p class="lead">No phone calls, no waiting. Choose your home size and cleaning type, and book the price you see.</p>
+        <ul><li>Same price at the door, guaranteed</li><li>Save up to 20% with regular visits</li><li>Reschedule anytime, free</li></ul>
+      </div>
+      <form class="calc" id="calc" novalidate>
+        <h3>Your cleaning</h3>
+        <div class="row"><span>Type of clean</span>
+          <div class="seg" role="radiogroup" aria-label="Type of clean">
+            <input type="radio" name="type" id="t-std" value="1" checked><label for="t-std">Standard</label>
+            <input type="radio" name="type" id="t-deep" value="1.6"><label for="t-deep">Deep</label>
+            <input type="radio" name="type" id="t-move" value="1.8"><label for="t-move">Move out</label>
+          </div>
+        </div>
+        <div class="two">
+          <div class="row"><span id="bed-label">Bedrooms</span>
+            <div class="stepper"><button type="button" data-step="bed" data-d="-1" aria-label="Fewer bedrooms">−</button><output id="bed" aria-labelledby="bed-label">2</output><button type="button" data-step="bed" data-d="1" aria-label="More bedrooms">+</button></div></div>
+          <div class="row"><span id="bath-label">Bathrooms</span>
+            <div class="stepper"><button type="button" data-step="bath" data-d="-1" aria-label="Fewer bathrooms">−</button><output id="bath" aria-labelledby="bath-label">2</output><button type="button" data-step="bath" data-d="1" aria-label="More bathrooms">+</button></div></div>
+        </div>
+        <div class="row"><label for="freq">How often?</label>
+          <select class="freq" id="freq"><option value="0">Just once</option><option value="0.10">Monthly (save 10%)</option><option value="0.15" selected>Every 2 weeks (save 15%)</option><option value="0.20">Weekly (save 20%)</option></select></div>
+        <div class="total"><span>Your price<br>per visit</span><div><b id="price">$0</b><small id="saving"></small></div></div>
+        <button class="btn btn-lime" type="submit">Book this price</button>
+        <p class="calc-note" id="calc-note">Demo calculator: prices are examples.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="check" id="included">
+    <div class="wrap">
+      <div class="check-photos">
+        <img src="https://images.pexels.com/photos/4239031/pexels-photo-4239031.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600" alt="Cleaner dusting a bathroom mirror and lights" loading="lazy">
+        <img src="https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600" alt="Cleaner wiping a glass shower wall" loading="lazy">
+      </div>
+      <div>
+        <div class="head" style="margin-bottom:32px">
+          <span class="pill" style="justify-self:start">What’s included</span>
+          <h2>Every room, every time.</h2>
+          <p>Our checklist makes sure nothing gets missed.</p>
+        </div>
+        <div class="rooms">
+          <div class="room"><h3>Kitchen</h3><ul><li>Counters and backsplash</li><li>Outside of appliances</li><li>Sink scrubbed and shined</li><li>Floors vacuumed and mopped</li></ul></div>
+          <div class="room"><h3>Bathrooms</h3><ul><li>Toilet, tub and shower</li><li>Mirrors and fixtures</li><li>Sinks and counters</li><li>Floors washed</li></ul></div>
+          <div class="room"><h3>Bedrooms</h3><ul><li>Dusting all surfaces</li><li>Beds made</li><li>Mirrors cleaned</li><li>Floors vacuumed</li></ul></div>
+          <div class="room"><h3>Living areas</h3><ul><li>Dusting and wiping</li><li>Cushions fluffed</li><li>Trash emptied</li><li>Floors vacuumed</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <div class="head"><span class="pill" style="justify-self:start;background:#fff">How it works</span><h2>Clean home in 3 easy steps</h2></div>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>Get your price</h3><p>Pick your home size and cleaning type. Your price shows instantly.</p></div>
+        <div class="step"><span class="n">2</span><h3>Choose a time</h3><p>Pick a day that works for you. We’ll text you to confirm.</p></div>
+        <div class="step"><span class="n">3</span><h3>Relax</h3><p>Our friendly team arrives on time and leaves your home sparkling.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <div class="wrap">
+      <div class="head"><span class="pill" style="justify-self:start">Reviews</span><h2>Happy homes, happy people</h2></div>
+      <div class="grid">
+        <div class="review"><span class="stars" aria-label="5 stars">★★★★★</span><p>“They were on time, so friendly, and my kitchen has never looked this good. Booked every two weeks now!”</p><span>Danielle M.</span></div>
+        <div class="review"><span class="stars" aria-label="5 stars">★★★★★</span><p>“The move-out clean got us our full deposit back. Worth every penny.”</p><span>Chris &amp; Ana P.</span></div>
+        <div class="review"><span class="stars" aria-label="5 stars">★★★★★</span><p>“Loved seeing the price right away. No surprises, no pushy sales calls.”</p><span>Robert T.</span></div>
+      </div>
+      <p class="sample">Sample reviews for this demo website.</p>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:0">
+    <div class="wrap faq-wrap">
+      <div class="head"><span class="pill" style="justify-self:start">FAQ</span><h2>Questions? We’ve got answers.</h2></div>
+      <div class="faq">
+        <details open><summary>Do I need to be home?</summary><p>No. Many clients give us a key or door code. Your home is always safe with our insured team.</p></details>
+        <details><summary>Do you bring your own supplies?</summary><p>Yes. We bring eco-friendly products and all equipment. Just tell us if you prefer your own.</p></details>
+        <details><summary>What if I’m not happy?</summary><p>Tell us within 24 hours and we’ll come back to re-clean that area for free.</p></details>
+        <details><summary>Are there any contracts?</summary><p>Never. Pause, reschedule or cancel anytime.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" style="padding-top:0">
+    <div class="wrap">
+      <div class="box">
+        <div><h2>Come home to clean.</h2><p>Book today. Your first clean comes with a free fridge clean-out.</p></div>
+        <a class="btn btn-teal" href="#quote">Get my price</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b style="color:var(--teal-ink)">Pure Home Cleaning Co.</b> · (555) 010-2290 · hello@purehomeclean.com</span>
+    <span>Website by <a href="../">Nickyar Web Design</a> · Photos from Pexels</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var counts = {bed:2, bath:2}, limits = {bed:[0,6], bath:[1,5]};
+  var form = document.getElementById('calc');
+  function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
+  function update(){
+    document.getElementById('bed').textContent = counts.bed === 0 ? 'Studio' : counts.bed;
+    document.getElementById('bath').textContent = counts.bath;
+    var mult = parseFloat(form.querySelector('input[name="type"]:checked').value);
+    var base = (85 + counts.bed * 25 + counts.bath * 20) * mult;
+    var off = parseFloat(document.getElementById('freq').value);
+    var price = base * (1 - off);
+    document.getElementById('price').textContent = fmt(price);
+    document.getElementById('saving').textContent = off ? 'You save ' + fmt(base - price) + ' each visit' : '';
+  }
+  document.querySelectorAll('[data-step]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var k = b.dataset.step, v = counts[k] + parseInt(b.dataset.d, 10);
+      counts[k] = Math.max(limits[k][0], Math.min(limits[k][1], v)); update();
+    });
+  });
+  form.addEventListener('change', update);
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('calc-note').textContent = 'Great choice! On a real website, this button opens the booking calendar. (This is a demo.)';
+  });
+  update();
+})();
+</script>
+</body>
+</html>

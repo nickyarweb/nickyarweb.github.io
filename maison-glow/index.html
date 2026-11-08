@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maison Glow · Hair Studio</title>
+<meta name="description" content="Maison Glow is a modern hair studio for cuts, color, balayage and styling. Book your appointment online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Nunito+Sans:wght@400;600;700&display=swap">
+<style>
+/* Layout: soft editorial salon. Blush paper, plum ink, rose accent, arched photo frames echoing salon mirrors. */
+:root{
+  color-scheme:light;
+  --blush:#f7ece8;
+  --petal:#efdcd5;
+  --white:#fffaf8;
+  --plum:#3b2230;
+  --plum-soft:#6f5260;
+  --rose:#c27a6c;
+  --rose-deep:#9c5546;
+  --line:rgba(59,34,48,.14);
+  --font-display:"Bodoni Moda", "Didot", Georgia, serif;
+  --font-body:"Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  --wrap:1180px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--blush);color:var(--plum);font-family:var(--font-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;margin:0;line-height:1.05;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+em{font-style:italic;color:var(--rose-deep)}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--rose-deep)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 14px/1 var(--font-body);letter-spacing:.12em;text-transform:uppercase;padding:17px 28px;border-radius:999px;text-decoration:none;border:1.5px solid var(--plum);cursor:pointer;transition:background .2s, color .2s}
+.btn-dark{background:var(--plum);color:var(--white)}
+.btn-dark:hover{background:var(--rose-deep);border-color:var(--rose-deep)}
+.btn-line{background:transparent;color:var(--plum)}
+.btn-line:hover{background:var(--plum);color:var(--white)}
+
+.demo{background:var(--plum);color:var(--petal);font-size:13px;text-align:center}
+.demo .wrap{padding-block:9px}
+.demo a{color:var(--white);text-underline-offset:3px}
+
+/* Nav */
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:26px}
+.logo{text-decoration:none;font-family:var(--font-display);font-size:30px;letter-spacing:.02em}
+.logo i{color:var(--rose-deep)}
+.links{display:flex;gap:32px;align-items:center;font-weight:600;font-size:15px}
+.links a{text-decoration:none}
+.links a:hover{color:var(--rose-deep)}
+.links .btn{padding:13px 22px;font-size:12px}
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-block:40px 100px}
+.hero-text{display:grid;gap:28px}
+.hero h1{font-size:clamp(54px, 7.4vw, 108px);letter-spacing:-.02em}
+.hero .lead{font-size:19px;color:var(--plum-soft);max-width:40ch}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.rating{display:flex;align-items:center;gap:14px;font-size:14px;color:var(--plum-soft)}
+.rating b{color:var(--rose-deep);letter-spacing:.15em}
+.arch{position:relative;min-width:0}
+.arch img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:999px 999px 18px 18px}
+.arch::after{content:"";position:absolute;inset:-14px;border:1px solid var(--rose);border-radius:999px 999px 26px 26px;pointer-events:none}
+.arch .chip{position:absolute;left:-28px;bottom:48px;background:var(--white);border-radius:16px;padding:16px 20px;display:grid;gap:2px;box-shadow:0 20px 40px -20px rgba(59,34,48,.4)}
+.arch .chip b{font-family:var(--font-display);font-weight:400;font-size:24px}
+.arch .chip span{font-size:13px;color:var(--plum-soft)}
+
+/* Marquee */
+.strip{background:var(--plum);color:var(--petal);overflow:hidden}
+.strip-track{display:flex;gap:48px;width:max-content;padding-block:20px;font-family:var(--font-display);font-style:italic;font-size:24px;white-space:nowrap;animation:slide 30s linear infinite}
+.strip-track span::after{content:"✦";font-style:normal;color:var(--rose);margin-left:48px;font-size:16px;vertical-align:middle}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section{padding-block:110px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:52px}
+.head > div{display:grid;gap:14px}
+.head h2{font-size:clamp(42px, 5.6vw, 72px)}
+.head p{color:var(--plum-soft);max-width:40ch}
+
+/* Services */
+.services{background:var(--white)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc{background:var(--blush);border-radius:20px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.svc img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.svc-body{padding:28px;display:grid;gap:16px;align-content:start}
+.svc h3{font-size:30px}
+.svc ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.svc li{display:flex;align-items:baseline;gap:10px;font-size:15px}
+.svc li span:first-child{flex:none}
+.svc li .dots{flex:1;border-bottom:1px dotted rgba(59,34,48,.35);transform:translateY(-4px);min-width:16px}
+.svc li .p{font-weight:700;font-variant-numeric:tabular-nums}
+.svc li small{display:block;color:var(--plum-soft);font-size:13px}
+
+/* Experience */
+.exp .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+.exp-photo{position:relative;min-width:0}
+.exp-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:18px}
+.exp-photo .small{position:absolute;right:-30px;bottom:-30px;width:46%;border:8px solid var(--blush);border-radius:18px;aspect-ratio:1/1}
+.exp-text{display:grid;gap:28px}
+.exp-text h2{font-size:clamp(40px, 5vw, 64px)}
+.steps{display:grid;gap:22px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.step .n{font-family:var(--font-display);font-style:italic;font-size:34px;color:var(--rose);line-height:1}
+.step h3{font-size:24px;margin-bottom:4px}
+.step p{color:var(--plum-soft);font-size:15px}
+
+/* Gallery */
+.gallery{background:var(--petal)}
+.looks{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.looks figure{margin:0;display:grid;gap:10px}
+.looks img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:999px 999px 14px 14px;transition:transform .5s}
+.looks figure:hover img{transform:translateY(-6px)}
+.looks figcaption{font-family:var(--font-display);font-style:italic;font-size:19px;text-align:center}
+
+/* Reviews */
+.quote-band{text-align:center}
+.quote-band .wrap{display:grid;gap:24px;justify-items:center;max-width:900px}
+.quote-band blockquote{margin:0;font-family:var(--font-display);font-size:clamp(28px, 3.8vw, 46px);line-height:1.2}
+.quote-band cite{font-style:normal;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--plum-soft)}
+.quote-band small{font-size:12px;color:var(--plum-soft)}
+
+/* Booking */
+.book{background:var(--plum);color:var(--petal)}
+.book .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.book .eyebrow{color:var(--rose)}
+.book h2{font-size:clamp(42px, 5.4vw, 70px);color:var(--white);margin-top:14px}
+.book .info{display:grid;gap:28px;margin-top:36px}
+.book .info h3{font-size:22px;color:var(--white);margin-bottom:8px}
+.book .info p,.hours td{color:#d9c3c9;font-size:16px}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:8px 0;border-bottom:1px solid rgba(239,220,213,.14)}
+.hours td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.card{background:var(--white);color:var(--plum);border-radius:24px;padding:40px;display:grid;gap:20px}
+.card h3{font-size:36px}
+.card .sub{color:var(--plum-soft);font-size:15px;margin-top:-8px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:6px;min-width:0}
+.field.full{grid-column:1 / -1}
+.field label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--plum-soft)}
+.field input,.field select{font:400 16px var(--font-body);color:var(--plum);background:var(--blush);border:1.5px solid transparent;border-radius:12px;padding:14px 15px;width:100%;min-width:0}
+.field input:focus,.field select:focus{outline:none;border-color:var(--rose)}
+.card .btn{width:100%;justify-content:center}
+.error{color:#a3281a;font-size:14px}
+.thanks{background:var(--blush);border-radius:14px;padding:18px;font-size:15px}
+.gift{margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border:1px dashed rgba(239,220,213,.4);border-radius:16px;padding:20px 24px}
+.gift b{font-family:var(--font-display);font-weight:400;font-size:22px;color:var(--white)}
+.gift span{font-size:14px;color:#d9c3c9}
+
+footer{background:var(--plum);color:#d9c3c9;border-top:1px solid rgba(239,220,213,.14);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:30px}
+footer .logo{font-size:22px;color:var(--white)}
+
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+@media (max-width: 960px){
+  section{padding-block:80px}
+  .links a:not(.btn){display:none}
+  .hero .wrap,.exp .wrap,.book .wrap{grid-template-columns:1fr;gap:56px}
+  .arch{max-width:460px;margin-inline:auto}
+  .arch .chip{left:0}
+  .svc-grid{grid-template-columns:1fr;max-width:520px}
+  .looks{grid-template-columns:repeat(2,1fr)}
+  .exp-photo{max-width:480px}
+  .exp-photo .small{right:-10px}
+}
+@media (max-width: 560px){
+  .form{grid-template-columns:1fr}
+  .card{padding:28px 22px}
+  .hero .wrap{padding-block:16px 72px}
+}
+</style>
+</head>
+<body>
+
+<div class="demo"><div class="wrap">Sample website designed by Nickyar Web Design · <a href="../">Want one for your business?</a></div></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Maison <i>Glow</i></a>
+    <nav class="links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#experience">Experience</a>
+      <a href="#looks">Looks</a>
+      <a class="btn btn-dark" href="#book">Book now</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding-block:0">
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="eyebrow">Hair studio · Cuts · Color · Styling</span>
+        <h1>Hair, <em>beautifully</em> done.</h1>
+        <p class="lead">Soft balayage, sharp cuts and glossy blowouts in a calm, light-filled studio. Leave feeling like the best version of you.</p>
+        <div class="actions">
+          <a class="btn btn-dark" href="#book">Book an appointment</a>
+          <a class="btn btn-line" href="#services">View prices</a>
+        </div>
+        <div class="rating"><b>★★★★★</b><span>Loved by 800+ happy clients</span></div>
+      </div>
+      <div class="arch">
+        <img src="https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1100" alt="Stylist creating soft curls on a client's long hair" style="object-position:55% center">
+        <div class="chip"><b>Free consultation</b><span>With every color service</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-hidden="true">
+    <div class="strip-track">
+      <span>Balayage</span><span>Precision cuts</span><span>Glossing</span><span>Bridal styling</span><span>Keratin smoothing</span><span>Blowouts</span>
+      <span>Balayage</span><span>Precision cuts</span><span>Glossing</span><span>Bridal styling</span><span>Keratin smoothing</span><span>Blowouts</span>
+    </div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Services &amp; prices</span><h2>Our <em>menu</em></h2></div>
+        <p>Prices are starting points. Your stylist confirms the final price at your consultation.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc">
+          <img src="https://images.pexels.com/photos/8467969/pexels-photo-8467969.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Stylist straightening a client's hair with a flat iron" loading="lazy" style="object-position:center 30%">
+          <div class="svc-body">
+            <h3>Cut &amp; style</h3>
+            <ul>
+              <li><span>Women’s cut<small>45 min</small></span><span class="dots"></span><span class="p">$65</span></li>
+              <li><span>Men’s cut<small>30 min</small></span><span class="dots"></span><span class="p">$40</span></li>
+              <li><span>Blowout<small>40 min</small></span><span class="dots"></span><span class="p">$45</span></li>
+              <li><span>Special event style<small>60 min</small></span><span class="dots"></span><span class="p">$85</span></li>
+            </ul>
+          </div>
+        </article>
+        <article class="svc">
+          <img src="https://images.pexels.com/photos/4981476/pexels-photo-4981476.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Colorist applying pink hair color with a brush" loading="lazy">
+          <div class="svc-body">
+            <h3>Color</h3>
+            <ul>
+              <li><span>Root touch-up<small>90 min</small></span><span class="dots"></span><span class="p">$75</span></li>
+              <li><span>Full color<small>2 hrs</small></span><span class="dots"></span><span class="p">$110</span></li>
+              <li><span>Balayage<small>3 hrs</small></span><span class="dots"></span><span class="p">$180</span></li>
+              <li><span>Gloss &amp; tone<small>45 min</small></span><span class="dots"></span><span class="p">$55</span></li>
+            </ul>
+          </div>
+        </article>
+        <article class="svc">
+          <img src="https://images.pexels.com/photos/7750099/pexels-photo-7750099.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Bright salon interior with styling stations" loading="lazy">
+          <div class="svc-body">
+            <h3>Treatments</h3>
+            <ul>
+              <li><span>Deep conditioning<small>30 min</small></span><span class="dots"></span><span class="p">$35</span></li>
+              <li><span>Keratin smoothing<small>2.5 hrs</small></span><span class="dots"></span><span class="p">$250</span></li>
+              <li><span>Scalp ritual<small>30 min</small></span><span class="dots"></span><span class="p">$40</span></li>
+              <li><span>Bridal trial<small>90 min</small></span><span class="dots"></span><span class="p">$120</span></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="exp" id="experience">
+    <div class="wrap">
+      <div class="exp-photo">
+        <img src="https://images.pexels.com/photos/3993312/pexels-photo-3993312.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" alt="Stylist sectioning a client's hair before color" loading="lazy">
+        <img class="small" src="https://images.pexels.com/photos/705255/pexels-photo-705255.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600" alt="Warm salon with wooden floors and styling chairs" loading="lazy" style="object-fit:cover">
+      </div>
+      <div class="exp-text">
+        <span class="eyebrow">The Maison experience</span>
+        <h2>Your hour, <em>just for you.</em></h2>
+        <div class="steps">
+          <div class="step"><span class="n">i.</span><div><h3>Consultation</h3><p>We talk about your hair, your routine and the look you love.</p></div></div>
+          <div class="step"><span class="n">ii.</span><div><h3>Wash &amp; ritual</h3><p>A relaxing wash and scalp massage with premium products.</p></div></div>
+          <div class="step"><span class="n">iii.</span><div><h3>The transformation</h3><p>Your stylist works their magic, explaining each step.</p></div></div>
+          <div class="step"><span class="n">iv.</span><div><h3>Finish &amp; tips</h3><p>A perfect finish, plus easy tips to keep it glowing at home.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="looks">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Recent looks</span><h2>Fresh from <em>the chair</em></h2></div>
+        <a class="btn btn-line" href="#book">Book your look</a>
+      </div>
+      <div class="looks">
+        <figure><img src="https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600" alt="Long hair styled in soft curls" loading="lazy"><figcaption>Soft curls</figcaption></figure>
+        <figure><img src="https://images.pexels.com/photos/3993311/pexels-photo-3993311.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600" alt="Client getting color in a modern salon" loading="lazy"><figcaption>Rich brunette</figcaption></figure>
+        <figure><img src="https://images.pexels.com/photos/4981476/pexels-photo-4981476.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600" alt="Pink pastel hair color being applied" loading="lazy"><figcaption>Pastel pink</figcaption></figure>
+        <figure><img src="https://images.pexels.com/photos/8467969/pexels-photo-8467969.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600" alt="Sleek straight blonde hair being styled" loading="lazy"><figcaption>Sleek &amp; straight</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-band">
+    <div class="wrap">
+      <span class="eyebrow">Client love</span>
+      <blockquote>“I’ve never felt so listened to in a salon. My balayage is exactly what I dreamed of.”</blockquote>
+      <cite>Emily R.</cite>
+      <small>Sample review for this demo website.</small>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Visit the studio</span>
+        <h2>Book your <em style="color:var(--rose)">glow.</em></h2>
+        <div class="info">
+          <div>
+            <h3>Hours</h3>
+            <table class="hours">
+              <tr><td>Sunday – Monday</td><td>Closed</td></tr>
+              <tr><td>Tuesday – Friday</td><td>9 am – 7 pm</td></tr>
+              <tr><td>Saturday</td><td>8 am – 4 pm</td></tr>
+            </table>
+          </div>
+          <div><h3>Studio</h3><p>48 Rosewood Avenue, Suite 2<br>Lakeside, USA</p></div>
+          <div><h3>Contact</h3><p>(555) 010-7781<br>hello@maisonglow.com</p></div>
+          <div class="gift"><div><b>Gift cards</b><br><span>The perfect present, any amount.</span></div><a class="btn btn-line" href="#book" style="color:var(--petal);border-color:var(--petal)">Ask about gifts</a></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Book an appointment</h3>
+        <p class="sub">Pick a service and time. We’ll text you to confirm.</p>
+        <form class="form" id="book-form" novalidate>
+          <div class="field full"><label for="b-service">Service</label>
+            <select id="b-service"><option>Women’s cut · $65</option><option>Men’s cut · $40</option><option>Blowout · $45</option><option selected>Balayage · $180</option><option>Full color · $110</option><option>Keratin smoothing · $250</option><option>Bridal trial · $120</option></select></div>
+          <div class="field"><label for="b-stylist">Stylist</label>
+            <select id="b-stylist"><option>No preference</option><option>Ava (color expert)</option><option>Lena (cuts)</option><option>Sofia (bridal)</option></select></div>
+          <div class="field"><label for="b-date">Date</label><input id="b-date" type="date"></div>
+          <div class="field"><label for="b-time">Time</label>
+            <select id="b-time"><option>9:00 am</option><option>10:30 am</option><option selected>12:00 pm</option><option>1:30 pm</option><option>3:00 pm</option><option>4:30 pm</option></select></div>
+          <div class="field"><label for="b-phone">Phone</label><input id="b-phone" type="tel" placeholder="(555) 123-4567" autocomplete="tel"></div>
+          <div class="field full"><label for="b-name">Your name</label><input id="b-name" placeholder="Jordan Smith" autocomplete="name"></div>
+          <div class="field full"><p class="error" id="b-error" hidden>Please add your name and a date.</p><button class="btn btn-dark" type="submit">Request appointment</button></div>
+        </form>
+        <div class="thanks" id="b-thanks" hidden></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top">Maison Glow</a>
+    <span>Website by <a href="../" style="color:var(--white)">Nickyar Web Design</a> · Photos from Pexels</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var dateEl = document.getElementById('b-date');
+  var t = new Date(); t.setDate(t.getDate()+1);
+  while (t.getDay() === 0 || t.getDay() === 1) t.setDate(t.getDate()+1);
+  dateEl.min = new Date().toISOString().slice(0,10);
+  dateEl.value = t.toISOString().slice(0,10);
+  var form = document.getElementById('book-form'), err = document.getElementById('b-error'), thanks = document.getElementById('b-thanks');
+  form.addEventListener('input', function(){ err.hidden = true; });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('b-name').value.trim();
+    if (!name || !dateEl.value){ err.hidden = false; err.textContent = 'Please add your name and a date.'; return; }
+    var day = new Date(dateEl.value + 'T12:00');
+    if (day.getDay() === 0 || day.getDay() === 1){ err.hidden = false; err.textContent = 'We’re closed Sundays and Mondays. Please pick another day.'; return; }
+    var nice = day.toLocaleDateString(undefined, {weekday:'long', month:'long', day:'numeric'});
+    var svc = document.getElementById('b-service').value.split(' · ')[0];
+    thanks.textContent = 'Thank you, ' + name.split(' ')[0] + '! Your ' + svc + ' request for ' + nice + ' at ' + document.getElementById('b-time').value + ' is in. (This is a demo website, so no real appointment was made.)';
+    form.hidden = true; thanks.hidden = false;
+  });
+})();
+</script>
+</body>
+</html>
