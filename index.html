@@ -182,6 +182,10 @@ section{padding-block:120px;border-bottom:1px solid var(--line)}
 /* Photo work cards */
 .shot{background:#fff;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(22,19,15,.35);transition:transform .3s}
 .work-item:hover .shot{transform:translateY(-6px)}
+.work-item.featured{grid-column:1 / -1}
+.work-item.featured .shot-img{aspect-ratio:16/7}
+.work-item.featured .shot-img img{object-position:center 45%}
+@media (max-width: 960px){.work-item.featured .shot-img{aspect-ratio:4/3.4}}
 .shot-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line);background:#fbf7f0}
 .shot-bar i{width:8px;height:8px;border-radius:50%;background:rgba(22,19,15,.18);display:block}
 .shot-bar span{margin-left:8px;font-size:11px;color:var(--ink-muted);letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
@@ -297,6 +301,15 @@ footer b{color:var(--gold);font-weight:400}
         <p>Sample websites that show the level of care every client receives.</p>
       </div>
       <div class="work">
+        <a class="work-item featured" href="orbal/" aria-label="View the ORBAL Jewelry Collection website">
+          <div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>orbal jewelry collection</span></div>
+            <div class="shot-img"><img src="orbal/images/post5.jpg" alt="Silver Afghan choker with red stones and a matching hand chain" loading="lazy">
+              <div class="shot-over"><span>Featured project · ORBAL Jewelry Collection</span><strong>Authentic Afghan heritage jewelry</strong><em>View the shop</em></div>
+            </div>
+          </div>
+          <div class="work-meta"><h3>Jewelry boutique</h3><span>View live site →</span></div>
+          <p>Online collection with category filters, a heritage story and one-tap ordering through Instagram.</p>
+        </a>
         <a class="work-item" href="ember-and-oak/" aria-label="View the Ember and Oak restaurant sample website">
           <div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>emberandoak.com</span></div>
             <div class="shot-img"><img src="https://images.pexels.com/photos/776538/pexels-photo-776538.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" alt="Warm restaurant interior with glowing pendant lamps" loading="lazy">
