@@ -27,6 +27,8 @@
   --wrap:1180px;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
+.open-now.closed i{background:var(--smoke);box-shadow:0 0 0 4px rgba(185,169,154,.2)}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--char);color:var(--cream);font-family:var(--font-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
@@ -385,6 +387,7 @@ footer .logo{font-size:22px;color:var(--cream)}
   var d = new Date(), day = d.getDay(), h = d.getHours();
   var hours = {0:[11,15],1:null,2:[17,22],3:[17,22],4:[17,22],5:[16,23],6:[16,23]}[day];
   var s = document.getElementById('open-status');
+  if (!hours || h < hours[0] || h >= hours[1]) s.parentNode.classList.add('closed');
   if (!hours) s.textContent = 'Closed today · Open tomorrow at 5 pm';
   else if (h >= hours[0] && h < hours[1]) s.textContent = 'Open now · Kitchen fires until ' + (hours[1] > 12 ? hours[1]-12 : hours[1]) + ' pm';
   else if (h < hours[0]) s.textContent = 'Opens today at ' + (hours[0] > 12 ? hours[0]-12 + ' pm' : hours[0] + ' am');
